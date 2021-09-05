@@ -7,4 +7,13 @@
 .borda-verde{ border: 4px solid green; }
 .borda-vermelha{ border: 4px solid red }
 .frase { font-size: 20px; }
-.icones {vertical-align: middle;}
+.icones { vertical-align: middle; }
+.placar{ display: none; }
+
+#erro{ 
+    color: red; 
+    display: none; 
+    font-size: 20px;
+}
+
+#spinner{display: none;}

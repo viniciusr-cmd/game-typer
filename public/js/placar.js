@@ -1,18 +1,28 @@
 //ALL ABOUT POINTS
+$('#botao-placar').click(mostraPlacar)
 
 //Add points
 function inserePlacar() {
     console.log('Inseriu placar')
     let corpoTabela = $('.placar').find('tbody')
     let numPalavras = $('#contador-palavras').text()
-    let usuario = 'Vinicius'
+    let usuario = 'You'
 
     let linha = novaLinha(usuario, numPalavras)
     linha.find(".botao-remover").click(removeLinha)
 
     corpoTabela.append(linha)
+    $('.placar').slideDown(500)
+    scrollPlacar()
 }
 
+function scrollPlacar(){
+    let posicaoPlacar = $('.placar').offset().top
+    console.log(posicaoPlacar)
+    $('body').animate({
+        scrollTop: `${posicaoPlacar}px`
+    }, 300)
+}
 //Create new lines
 function novaLinha(usuario, palavras) {
     let linha = $('<tr>')
@@ -35,5 +45,14 @@ function novaLinha(usuario, palavras) {
 function removeLinha() {
     console.log('removi')
     event.preventDefault()
-    $('.botao-remover').parent().parent().remove()
+    let btnRemove = $('.botao-remover').parent().parent().fadeOut()
+    setTimeout(() => {
+        btnRemove.remove()
+    }, 300)
+}
+
+//Show points with animation
+function mostraPlacar() {
+    console.log('Mostrou placar')
+    $('.placar').stop().slideToggle(300)
 }

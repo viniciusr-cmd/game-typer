@@ -23,6 +23,11 @@ function atualizaTamanhoFrase() {
 	tamanhoFrase.text(numPalavras)
 }
 
+function atualizaTempoInicial(tempo){
+	tempoInicial = tempo
+	$('#tempo-digitacao').text(tempo)
+}
+
 //Initialize document counter
 function inicializaContadores() {
 	console.log('Inicializou contadores')
@@ -39,8 +44,8 @@ function inicializaContadores() {
 //Initialize document stopwatch
 function inicializaCronometro() {
 	console.log('Inicializou cronometros')
-	let tempoRestante = $('#tempo-digitacao').text()
 	campo.one('focus', () => {
+		let tempoRestante = $('#tempo-digitacao').text()
 		let cronometroID = setInterval(() => {
 			tempoRestante--
 
@@ -65,8 +70,8 @@ function finalizaJogo() {
 //Initialize marks
 function inicializaMarcadores() {
 	console.log('Inicializou Marcadores')
-	let frase = $('.frase').text()
 	campo.on('input', () => {
+		let frase = $('.frase').text()
 		let digitado = campo.val()
 		let comparavel = frase.substr(0, digitado.length)
 
