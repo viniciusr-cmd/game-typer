@@ -1,4 +1,5 @@
 $('#botao-frase').click(fraseAleatoria)
+$('#botao-frase-id').click(buscaFrase)
 
 function fraseAleatoria() {
     console.log('Chamou AJAX')
@@ -9,7 +10,7 @@ function fraseAleatoria() {
         $('#erro').show()
         setTimeout(() => {
             $('#erro').toggle()
-        }, 3500);
+        }, 2500);
     })
     .always(() => {
         $('#spinner').toggle()
@@ -23,4 +24,29 @@ function trocaFraseAleatoria(data) {
     frase.text(data[numeroAleatorio].texto)
     atualizaTamanhoFrase()
     atualizaTempoInicial(data[numeroAleatorio].tempo)
+}
+
+function buscaFrase(){
+    $('#spinner').toggle()
+    let fraseId = $('#frase-id').val()
+    console.log('id da minha frase:' + fraseId);
+    let dados = {id: fraseId}
+    $.get('http://localhost:3000/frases', dados, trocaFrase)
+    .fail(() => {
+        $('#erro').toggle()
+        setTimeout(() => {
+            $('#erro').toggle()
+        }, 2500);
+    })
+    .always(() => {
+        $('#spinner').toggle()
+    })
+
+}
+
+function trocaFrase(data){
+    let frase = $('.frase')
+    frase.text(data.texto)
+    atualizaTamanhoFrase()
+    atualizaTempoInicial(data.tempo)
 }

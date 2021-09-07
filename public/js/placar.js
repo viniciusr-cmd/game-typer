@@ -1,6 +1,6 @@
 //ALL ABOUT POINTS
 $('#botao-placar').click(mostraPlacar)
-
+$('#botao-sync').click(sincronizaPlacar)
 //Add points
 function inserePlacar() {
     console.log('Inseriu placar')
@@ -55,4 +55,8 @@ function removeLinha() {
 function mostraPlacar() {
     console.log('Mostrou placar')
     $('.placar').stop().slideToggle(300)
+}
+
+function sincronizaPlacar(){
+    console.log('Sincronizou placar')
 }
