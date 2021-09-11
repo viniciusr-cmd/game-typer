@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <title>Game Typer</title>
     <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/libs/selectize.default.css">
+    <link rel="stylesheet" href="css/libs/tooltipster.bundle.min.css">
     <link rel="stylesheet" href="css/estilos.css">
     <link rel="stylesheet" href="css/libs/google-fonts.css">
 </head>
@@ -45,10 +47,18 @@
             <a id="botao-frase-id" class="btn-floating btn-large waves-effect waves-light cyan">
                 <i class="material-icons">repeat_one</i>
             </a>
+            <div class="select-usuarios">
+                <select name="usuarios" id="usuarios">
+                    <option value="Douglas">Douglas</option>
+                    <option value="Flavio">Flavio</option>
+                    <option value="Nico"></option>
+                </select>
+            </div>
             <input type="number" id="frase-id" min="0" max="10">
-            <a id="botao-sync" class="btn-floating btn-large waves-effect waves-light yellow">
+            <a id="botao-sync" class="tooltip btn-floating btn-large waves-effect waves-light yellow" title="Sincronizado com sucesso!">
                 <i class="material-icons">swap_vert</i>
             </a>
+
         </div>
 
 
@@ -80,6 +90,8 @@
     <script src="js/main.js" defer></script>
     <script src="js/placar.js"></script>
     <script src="js/frase.js"></script>
+    <script src="js/selectize.js"></script>
+    <script src="js/tooltipster.bundle.min.js"></script>
 </body>
 
 </html>
